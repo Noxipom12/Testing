@@ -67,35 +67,26 @@
   </form>
 
   <!-- EmailJS -->
-<form id="contact-form">
-  <input type="text" name="from_name" placeholder="Nama" required>
-  <input type="email" name="reply_to" placeholder="Email" required>
-  <textarea name="message" placeholder="Pesan" required></textarea>
-  <button type="submit">Kirim</button>
-</form>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function(){
-    // PUBLIC KEY kamu
-    emailjs.init("su3CJ45UmaomRbGY3");
-  })();
+  <script>
+    // Inisialisasi EmailJS
+    (function() {
+      emailjs.init("su3CJ45UmaomRbGY3"); // Public Key kamu
+    })();
 
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+    // Event kirim form
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
 
-    emailjs.sendForm(
-      'service_icqlz2r',   // Service ID dari dashboard
-      'template_jrmy33b', // Template ID yang kamu punya
-      this
-    ).then(function() {
-      alert('Pesan berhasil dikirim!');
-    }, function(error) {
-      alert('Gagal mengirim pesan: ' + JSON.stringify(error));
+      emailjs.sendForm("service_icqlz2r", "template_jrmy33b", this)
+        .then(() => {
+          alert("Pesan berhasil dikirim!");
+        }, (err) => {
+          alert("Gagal kirim pesan: " + JSON.stringify(err));
+        });
     });
-  });
-</script>
-
+  </script>
 
 
 
