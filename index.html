@@ -67,27 +67,35 @@
   </form>
 
   <!-- EmailJS -->
+<form id="contact-form">
+  <input type="text" name="from_name" placeholder="Nama" required>
+  <input type="email" name="reply_to" placeholder="Email" required>
+  <textarea name="message" placeholder="Pesan" required></textarea>
+  <button type="submit">Kirim</button>
+</form>
+
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-  (function(){
-    // pakai PUBLIC key
-    emailjs.init("su3CJ45UmaomRbGY3");
-  })();
+  (function(){
+    // PUBLIC KEY kamu
+    emailjs.init("su3CJ45UmaomRbGY3");
+  })();
 
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    emailjs.sendForm(
-      'service_icqlz2r',   // Service ID dari dashboard
-      'template_jrmy33b',   // Ganti dengan Template ID kamu
-      this
-    ).then(function() {
-      alert('Pesan berhasil dikirim!');
-    }, function(error) {
-      alert('Gagal mengirim pesan: ' + JSON.stringify(error));
-    });
-  });
+    emailjs.sendForm(
+      'service_icqlz2r',   // Service ID dari dashboard
+      'template_jrmy33b', // Template ID yang kamu punya
+      this
+    ).then(function() {
+      alert('Pesan berhasil dikirim!');
+    }, function(error) {
+      alert('Gagal mengirim pesan: ' + JSON.stringify(error));
+    });
+  });
 </script>
+
 
 
 
