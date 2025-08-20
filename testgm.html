@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hacked by Noxipom12</title>
+  <style>
+    body {
+      background: black;
+      color: lime;
+      font-family: monospace;
+      text-align: center;
+      padding: 50px;
+    }
+    img {
+      width: 200px;
+      border-radius: 50%;
+      border: 3px solid lime;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 0;
+    }
+    p {
+      margin-top: 5px;
+      font-size: 16px;
+      color: red;
+    }
+    form {
+      margin-top: 40px;
+    }
+    input, textarea {
+      background: #111;
+      color: lime;
+      border: 1px solid lime;
+      padding: 10px;
+      margin: 5px;
+      width: 80%;
+      max-width: 400px;
+    }
+    button {
+      padding: 10px 20px;
+      background: lime;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="https://avatars.githubusercontent.com/u/91385330?v=4" alt="Deface Logo">
+  <h1>Hacked by Noxipom12</h1>
+  <p>Pemerintah tidur, rakyat sengsara.<br>Saya kembali. Kirim pesanmu di bawah!</p>
+
+  <!-- Contact Form -->
+  <form id="contact-form">
+    <input type="text" name="name" placeholder="Nama Kamu" required><br>
+    <input type="email" name="email" placeholder="Email Kamu" required><br>
+    <input type="text" name="title" placeholder="Judul Pesan" required><br>
+    <textarea name="message" rows="5" placeholder="Isi pesan kamu..." required></textarea><br>
+    <button type="submit">Kirim ke Noxipom12</button>
+  </form>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("lNTIDw6XTJDb8Pb5635X4"); // Public Key
+    })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_icqlz2r', 'contact_us', this)
+        .then(function() {
+          alert('Pesan berhasil dikirim ke Noxipom12!');
+        }, function(error) {
+          alert('Gagal mengirim pesan: ' + JSON.stringify(error));
+        });
+    });
+  </script>
+
+</body>
+</html>
